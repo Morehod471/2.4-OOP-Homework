@@ -9,11 +9,23 @@ public abstract class Transport {
     public String model;
     public double engineVolume;
 
+    public enum Type {
+        PassengerCar,
+        Truck,
+        Bus;
+    }
+
+    abstract void getType();
+
+    abstract void printType();
+
     public Transport(String brand, String model, double engineVolume) {
         this.brand = validTranpsportTrait(brand);
         this.model = validTranpsportTrait(model);
         this.engineVolume = validEngineVolume(engineVolume);
     }
+
+
 
     public String getBrand() {return brand;}
 

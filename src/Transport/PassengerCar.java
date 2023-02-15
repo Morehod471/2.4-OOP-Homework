@@ -1,15 +1,65 @@
 package Transport;
 
-public class PassengerCar extends Transport implements Competable{
-    public PassengerCar(String brand, String model, double engineVolume) {
-        super(brand, model, engineVolume);
+public class PassengerCar extends Transport implements Competable {
+
+    Body body;
+
+    public enum Body {
+        Sedan("Седан"),
+        Hatchback("Хетчбек"),
+        Coupe("Купе"),
+        Universal("Универсал"),
+        OffRoad("Внедорожник"),
+        CrossOver("Кроссовер"),
+        PickUp("Пикап"),
+        Wagon("Фургон"),
+        Minivan("Минивен");
+
+        private String bodyType;
+
+        Body(String bodyType) {
+            this.bodyType = bodyType;
+        }
+
+        public String getBodyType() {
+            return bodyType;
+        }
     }
 
     @Override
-    void start() {System.out.println("Car start");}
+    void getType() {
+
+    }
 
     @Override
-    void stop() {System.out.println("Car start");}
+    void printType() {
+
+    }
+
+    public PassengerCar(String brand, String model, double engineVolume, Body body) {
+        super(brand, model, engineVolume);
+        this.body = body;
+    }
+
+    @Override
+    public String toString() {
+        return "PassengerCar{ " +
+                "brand = '" + brand + '\'' +
+                ", model = '" + model + '\'' +
+                ", engineVolume = " + engineVolume +
+                ", body = " + body.getBodyType() +
+                '}';
+    }
+
+    @Override
+    void start() {
+        System.out.println("Car start");
+    }
+
+    @Override
+    void stop() {
+        System.out.println("Car start");
+    }
 
     @Override
     public void PitStop() {

@@ -5,15 +5,15 @@ public class PassengerCar extends Transport implements Competable {
     Body body;
 
     public enum Body {
-        Sedan("Седан"),
-        Hatchback("Хетчбек"),
-        Coupe("Купе"),
-        Universal("Универсал"),
-        OffRoad("Внедорожник"),
-        CrossOver("Кроссовер"),
-        PickUp("Пикап"),
-        Wagon("Фургон"),
-        Minivan("Минивен");
+        SEDAN("Седан"),
+        HATCHBACK("Хетчбек"),
+        COUPE("Купе"),
+        UNIVERSAL("Универсал"),
+        OFF_ROAD("Внедорожник"),
+        CROSS_OVER("Кроссовер"),
+        PICK_UP("Пикап"),
+        WAGON("Фургон"),
+        MINIVAN("Минивен");
 
         private String bodyType;
 

@@ -5,9 +5,9 @@ public class Truck extends Transport implements Competable {
     Weight weight;
 
     public enum Weight {
-        N1(null, 3.5F),
-        N2(3.5F, 12.0F),
-        N3(12F, null);
+        N1(0F, 3.5F),
+        N2(3.6F, 12.0F),
+        N3(13F, 500F);
 
         private Float lowerBound;
         private Float upperBound;

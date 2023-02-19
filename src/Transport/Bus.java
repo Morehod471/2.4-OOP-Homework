@@ -5,11 +5,11 @@ public class Bus extends Transport implements Competable {
     BusCapacity busCapacity;
 
     public enum BusCapacity {
-        Small(null, 10),
-        Little(10, 25),
-        Middle(25, 50 ),
-        Large(50, 80),
-        ExtraLarge(80, null);
+        SMALL(0, 10),
+        LITTLE(11, 25),
+        MIDDLE(26, 50 ),
+        LARGE(51, 80),
+        EXTRA_LARGE(81, 500);
 
         private Integer lowerBound;
         private Integer upperBound;

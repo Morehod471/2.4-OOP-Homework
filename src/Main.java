@@ -1,10 +1,7 @@
-import Transport.Bus;
-import Transport.DriverB;
-import Transport.PassengerCar;
-import Transport.Truck;
+import Transport.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TransportTypeException {
 
         PassengerCar passengerCar1 = new PassengerCar("Volvo", "S60", 3.2, PassengerCar.Body.SEDAN);
         PassengerCar passengerCar2 = new PassengerCar("Ford", "Escort", 2.1, PassengerCar.Body.COUPE);
@@ -31,5 +28,9 @@ public class Main {
         System.out.println(bus4);
         System.out.println();
         bus1.printType();
+        System.out.println();
+        passengerCar1.passDiagnostic();
+        truck1.passDiagnostic();
+        bus1.passDiagnostic();
     }
 }

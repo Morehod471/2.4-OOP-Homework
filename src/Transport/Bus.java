@@ -78,4 +78,15 @@ public class Bus extends Transport implements Competable {
     public void MaxSpeed() {
         System.out.println("Mas Speed");
     }
+
+    @Override
+    public boolean passDiagnostic() throws TransportTypeException {
+        throw new TransportTypeException("Автобусы не проходят диагностику");
+    }
+
+    public static void check(Type type) throws TransportTypeException {
+        if (type == Type.BUS) {
+            throw new TransportTypeException();
+        }
+    }
 }

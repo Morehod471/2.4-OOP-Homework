@@ -50,7 +50,6 @@ public class Truck extends Transport implements Competable {
 
     @Override
     void printType() {
-
     }
 
     @Override

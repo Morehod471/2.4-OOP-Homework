@@ -1,7 +1,7 @@
 import Transport.*;
 
 public class Main {
-    public static void main(String[] args) throws TransportTypeException {
+    public static void main(String[] args) {
 
         PassengerCar passengerCar1 = new PassengerCar("Volvo", "S60", 3.2, PassengerCar.Body.SEDAN);
         PassengerCar passengerCar2 = new PassengerCar("Ford", "Escort", 2.1, PassengerCar.Body.COUPE);

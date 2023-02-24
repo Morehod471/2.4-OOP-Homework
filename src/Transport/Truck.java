@@ -50,7 +50,6 @@ public class Truck extends Transport implements Competable {
 
     @Override
     void printType() {
-
     }
 
     @Override
@@ -76,5 +75,10 @@ public class Truck extends Transport implements Competable {
     @Override
     public void MaxSpeed() {
         System.out.println("Mas Speed");
+    }
+
+    @Override
+    public boolean passDiagnostic() throws TransportTypeException {
+        return true;
     }
 }

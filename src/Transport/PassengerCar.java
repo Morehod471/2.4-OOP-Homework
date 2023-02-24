@@ -75,4 +75,9 @@ public class PassengerCar extends Transport implements Competable {
     public void MaxSpeed() {
         System.out.println("Mas Speed");
     }
+
+    @Override
+    public boolean passDiagnostic() throws TransportTypeException {
+        return true;
+    }
 }

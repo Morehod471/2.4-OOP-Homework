@@ -10,9 +10,9 @@ public abstract class Transport {
     public double engineVolume;
 
     public enum Type {
-        PassengerCar,
-        Truck,
-        Bus;
+        PASSENGER_CAR,
+        TRUCK,
+        BUS;
     }
 
     abstract void getType();
@@ -50,4 +50,6 @@ public abstract class Transport {
     void start() {}
 
     void stop() {}
+
+    public abstract boolean passDiagnostic() throws TransportTypeException;
 }

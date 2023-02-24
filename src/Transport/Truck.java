@@ -26,7 +26,6 @@ public class Truck extends Transport implements Competable {
         }
     }
 
-
     public Truck(String brand, String model, double engineVolume, Weight weight) {
         super(brand, model, engineVolume);
         this.weight = weight;

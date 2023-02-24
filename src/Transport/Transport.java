@@ -25,8 +25,6 @@ public abstract class Transport {
         this.engineVolume = validEngineVolume(engineVolume);
     }
 
-
-
     public String getBrand() {return brand;}
 
     public String getModel() {return model;}

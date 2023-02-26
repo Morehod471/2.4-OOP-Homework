@@ -1,8 +1,6 @@
 import Transport.*;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,6 +28,15 @@ public class Main {
         Bus bus3 = new Bus("PAZ", "Super", 5.1, driverD, List.of(mechanicPeter), Bus.BusCapacity.LARGE);
         Bus bus4 = new Bus("DMC", "Ultra", 4.8, driverD, List.of(mechanicVoldemar), Bus.BusCapacity.EXTRA_LARGE);
 
+        Map<Transport, List<Mechanic>> mapOfCarsAndMechanics = new HashMap<>();
+
+        mapOfCarsAndMechanics.put(passengerCar1, passengerCar1.getMechanicList());
+        mapOfCarsAndMechanics.put(truck4, truck4.getMechanicList());
+        mapOfCarsAndMechanics.put(bus2, bus2.getMechanicList());
+
+        for (Map.Entry<Transport, List<Mechanic>> map : mapOfCarsAndMechanics.entrySet()) {
+            System.out.println("Машина " + map.getKey() + " Механик " + map.getValue());
+        }
 
 //        System.out.println(driverB.getDriverLicense(passengerCar1));
 //        System.out.println();
@@ -45,10 +52,10 @@ public class Main {
 //        truck1.passDiagnostic();
 //        bus1.passDiagnostic();
 
-        List<Transport> cars = new ArrayList<>(12);
-        cars.add(passengerCar1);
-        cars.add(truck2);
-        cars.add(bus3);
-        System.out.println(cars);
+//        List<Transport> cars = new ArrayList<>(12);
+//        cars.add(passengerCar1);
+//        cars.add(truck2);
+//        cars.add(bus3);
+//        System.out.println(cars);
     }
 }

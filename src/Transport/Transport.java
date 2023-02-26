@@ -44,6 +44,10 @@ public abstract class Transport {
         return driver;
     }
 
+    public List<Mechanic> getMechanicList() {
+        return mechanicList;
+    }
+
     public void setBrand(String brand) {this.brand = brand;}
 
     public void setModel(String model) {this.model = model;}

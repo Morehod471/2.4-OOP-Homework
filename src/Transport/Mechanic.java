@@ -24,4 +24,12 @@ public class Mechanic {
     public String repairTransport(Transport carB) {
         return "Транспорт " + carB + " починили";
     }
+
+    @Override
+    public String toString() {
+        return "Mechanic{" +
+                "nameSurname='" + nameSurname + '\'' +
+                ", company='" + company + '\'' +
+                '}';
+    }
 }

@@ -86,4 +86,14 @@ public class Bus extends Transport implements Competable {
     public boolean passDiagnostic() throws TransportTypeException {
         throw new TransportTypeException("Автобусы не проходят диагностику");
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

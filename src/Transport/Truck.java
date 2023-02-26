@@ -83,4 +83,14 @@ public class Truck extends Transport implements Competable {
     public boolean passDiagnostic() throws TransportTypeException {
         return true;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

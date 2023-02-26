@@ -1,5 +1,7 @@
 package Transport;
 
+import java.util.List;
+
 public class Bus extends Transport implements Competable {
 
     BusCapacity busCapacity;
@@ -28,24 +30,26 @@ public class Bus extends Transport implements Competable {
         }
     }
 
-    public Bus(String brand, String model, double engineVolume, BusCapacity busCapacity) {
-        super(brand, model, engineVolume);
+    public Bus(String brand, String model, double engineVolume, Driver driver, List<Mechanic> mechanicList, BusCapacity busCapacity) {
+        super(brand, model, engineVolume, driver, mechanicList);
         this.busCapacity = busCapacity;
     }
 
     @Override
     public String toString() {
         return "Bus {" +
-                " brand = '" + brand + '\'' +
-                ", model = '" + model + '\'' +
-                ", engineVolume = " + engineVolume +
+                " brand = '" + getBrand() + '\'' +
+                ", model = '" + getModel() + '\'' +
+                ", engineVolume = " + getEngineVolume() +
+                ", driver = " + getDriver() +
                 ", Bus Capacity = " + (busCapacity.getLowerBound() == null ? "" : busCapacity.getLowerBound()) +
                 " - " + (busCapacity.getUpperBound() == null ? "" : busCapacity.getUpperBound()) +
                 '}';
     }
 
     @Override
-    public void getType() {
+    public Type getType() {
+        return Type.BUS;
     }
 
     @Override

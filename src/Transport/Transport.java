@@ -1,13 +1,18 @@
 package Transport;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static Transport.CarService.validNumber;
 import static Transport.CarService.validTrait;
 
 public abstract class Transport {
 
-    public String brand;
-    public String model;
-    public double engineVolume;
+    private String brand;
+    private String model;
+    private double engineVolume;
+    private Driver driver;
+    private List<Mechanic> mechanicList;
 
     public enum Type {
         PASSENGER_CAR,
@@ -15,14 +20,18 @@ public abstract class Transport {
         BUS;
     }
 
-    abstract void getType();
+    List<Mechanic> mechanics = new ArrayList<>(4);
 
-    abstract void printType();
+    public abstract Type getType();
 
-    public Transport(String brand, String model, double engineVolume) {
+    public abstract void printType();
+
+    public Transport(String brand, String model, double engineVolume, Driver driver, List<Mechanic> mechanicList) {
         this.brand = validTranpsportTrait(brand);
         this.model = validTranpsportTrait(model);
         this.engineVolume = validEngineVolume(engineVolume);
+        this.driver = driver;
+        this.mechanicList = mechanicList;
     }
 
     public String getBrand() {return brand;}
@@ -30,6 +39,10 @@ public abstract class Transport {
     public String getModel() {return model;}
 
     public double getEngineVolume() {return engineVolume;}
+
+    public Driver getDriver() {
+        return driver;
+    }
 
     public void setBrand(String brand) {this.brand = brand;}
 
@@ -50,4 +63,13 @@ public abstract class Transport {
     void stop() {}
 
     public abstract boolean passDiagnostic() throws TransportTypeException;
+
+    public boolean needDiagnostic() {
+        try {
+            passDiagnostic();
+        } catch (TransportTypeException e) {
+            return false;
+        }
+        return true;
+    }
 }

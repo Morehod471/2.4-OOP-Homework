@@ -1,5 +1,7 @@
 package Transport;
 
+import java.util.List;
+
 public class Truck extends Transport implements Competable {
 
     Weight weight;
@@ -26,29 +28,30 @@ public class Truck extends Transport implements Competable {
         }
     }
 
-    public Truck(String brand, String model, double engineVolume, Weight weight) {
-        super(brand, model, engineVolume);
+    public Truck(String brand, String model, double engineVolume, Driver driver, List<Mechanic> mechanicList, Weight weight) {
+        super(brand, model, engineVolume, driver, mechanicList);
         this.weight = weight;
     }
 
     @Override
     public String toString() {
         return "Truck{ " +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", engineVolume=" + engineVolume +
-                ", Weight " + (weight.getLowerBound() == null ? "" : "from " + weight.getLowerBound())
-                + (weight.getUpperBound() == null ? "" : "up to " + weight.getUpperBound()) +
+                "brand='" + getBrand() + '\'' +
+                ", model='" + getModel() + '\'' +
+                ", engineVolume=" + getEngineVolume() +
+                ", driver=" + getDriver() +
+                ", Weight " + (weight.getLowerBound() == 0 ? "" : "from " + weight.getLowerBound())
+                + (weight.getUpperBound() == 500F ? "" : "up to " + weight.getUpperBound()) +
                 '}';
     }
 
     @Override
-    void getType() {
-
+    public Type getType() {
+        return Type.TRUCK;
     }
 
     @Override
-    void printType() {
+    public void printType() {
     }
 
     @Override

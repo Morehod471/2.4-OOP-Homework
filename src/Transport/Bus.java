@@ -1,6 +1,7 @@
 package Transport;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Bus extends Transport implements Competable {
 
@@ -87,13 +88,25 @@ public class Bus extends Transport implements Competable {
         throw new TransportTypeException("Автобусы не проходят диагностику");
     }
 
+    public BusCapacity getBusCapacity() {
+        return busCapacity;
+    }
+
     @Override
     public boolean equals(Object o) {
-        return super.equals(o);
+        if (this == o) return true;
+        if (!(o instanceof Bus)) return false;
+        Bus bus = (Bus) o;
+        return Double.compare(bus.getEngineVolume(), getEngineVolume()) == 0 && Objects.equals(getBrand(),
+                bus.getBrand()) && Objects.equals(getModel(),
+                bus.getModel()) && Objects.equals(getDriver(),
+                bus.getDriver()) && Objects.equals(getMechanicList(),
+                bus.getMechanicList()) && Objects.equals(mechanics, bus.mechanics) &&
+                Objects.equals(getBusCapacity() , bus.getBusCapacity());
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(getBrand(), getModel(), getEngineVolume(), getDriver(), getMechanicList(), mechanics, getBusCapacity());
     }
 }

@@ -12,7 +12,7 @@ public class ServiceStation {
 
     public void startDiagnostic(Transport car) {
         for (Transport transport : deque) {
-            if (car.needDiagnostic() == true) {
+            if (car.needDiagnostic(car)) {
                 System.out.println(car + " проходит ТО");
                 deque.pollFirst();
             }

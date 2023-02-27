@@ -69,13 +69,12 @@ public abstract class Transport {
 
     public abstract boolean passDiagnostic() throws TransportTypeException;
 
-    public boolean needDiagnostic() {
-        try {
-            passDiagnostic();
-        } catch (TransportTypeException e) {
+    public boolean needDiagnostic(Transport car) {
+        if (car.getType() == Type.BUS) {
             return false;
+        } else {
+            return true;
         }
-        return true;
     }
 
     @Override

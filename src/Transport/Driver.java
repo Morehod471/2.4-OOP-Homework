@@ -28,4 +28,13 @@ public class Driver {
     public void stop() {}
 
     public void refuelCar() {}
+
+    @Override
+    public String toString() {
+        return "Driver{ " +
+                "name= '" + nameSurnamePatronymic + '\'' +
+                ", isDrivingLicense= " + isDrivingLicense +
+                ", experience= " + experience +
+                '}';
+    }
 }

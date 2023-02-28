@@ -1,8 +1,10 @@
 package Transport;
 
+import java.util.List;
+
 public class PassengerCar extends Transport implements Competable {
 
-    Body body;
+    private static Body body;
 
     public enum Body {
         SEDAN("Седан"),
@@ -21,32 +23,33 @@ public class PassengerCar extends Transport implements Competable {
             this.bodyType = bodyType;
         }
 
-        public String getBodyType() {
-            return bodyType;
+        public Body getBodyType() {
+            return body;
         }
     }
 
     @Override
-    void getType() {
-
+    public Type getType() {
+        return Type.PASSENGER_CAR;
     }
 
     @Override
-    void printType() {
+    public void printType() {
 
     }
 
-    public PassengerCar(String brand, String model, double engineVolume, Body body) {
-        super(brand, model, engineVolume);
+    public PassengerCar(String brand, String model, double engineVolume, Driver driver, List<Mechanic> mechanicList, Body body) {
+        super(brand, model, engineVolume, driver, mechanicList);
         this.body = body;
     }
 
     @Override
     public String toString() {
         return "PassengerCar{ " +
-                "brand = '" + brand + '\'' +
-                ", model = '" + model + '\'' +
-                ", engineVolume = " + engineVolume +
+                "brand = '" + getBrand() + '\'' +
+                ", model = '" + getModel() + '\'' +
+                ", engineVolume = " + getEngineVolume() +
+                ", driver = " + getDriver() +
                 ", body = " + body.getBodyType() +
                 '}';
     }

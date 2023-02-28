@@ -2,6 +2,7 @@ package Transport;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static Transport.CarService.validNumber;
 import static Transport.CarService.validTrait;
@@ -44,6 +45,10 @@ public abstract class Transport {
         return driver;
     }
 
+    public List<Mechanic> getMechanicList() {
+        return mechanicList;
+    }
+
     public void setBrand(String brand) {this.brand = brand;}
 
     public void setModel(String model) {this.model = model;}
@@ -64,12 +69,24 @@ public abstract class Transport {
 
     public abstract boolean passDiagnostic() throws TransportTypeException;
 
-    public boolean needDiagnostic() {
-        try {
-            passDiagnostic();
-        } catch (TransportTypeException e) {
+    public boolean needDiagnostic(Transport car) {
+        if (car.getType() == Type.BUS) {
             return false;
+        } else {
+            return true;
         }
-        return true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transport)) return false;
+        Transport transport = (Transport) o;
+        return Double.compare(transport.getEngineVolume(), getEngineVolume()) == 0 && Objects.equals(getBrand(), transport.getBrand()) && Objects.equals(getModel(), transport.getModel()) && Objects.equals(getDriver(), transport.getDriver()) && Objects.equals(getMechanicList(), transport.getMechanicList()) && Objects.equals(mechanics, transport.mechanics);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBrand(), getModel(), getEngineVolume(), getDriver(), getMechanicList(), mechanics);
     }
 }

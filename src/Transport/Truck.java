@@ -1,6 +1,7 @@
 package Transport;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Truck extends Transport implements Competable {
 
@@ -82,5 +83,27 @@ public class Truck extends Transport implements Competable {
     @Override
     public boolean passDiagnostic() throws TransportTypeException {
         return true;
+    }
+
+    public Weight getWeight() {
+        return weight;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Truck)) return false;
+        Truck truck = (Truck) o;
+        return Double.compare(truck.getEngineVolume(), getEngineVolume()) == 0 && Objects.equals(getBrand(),
+                truck.getBrand()) && Objects.equals(getModel(),
+                truck.getModel()) && Objects.equals(getDriver(),
+                truck.getDriver()) && Objects.equals(getMechanicList(),
+                truck.getMechanicList()) && Objects.equals(mechanics, truck.mechanics) &&
+                Objects.equals(getWeight() , truck.getWeight());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBrand(), getModel(), getEngineVolume(), getDriver(), getMechanicList(), mechanics, getWeight());
     }
 }

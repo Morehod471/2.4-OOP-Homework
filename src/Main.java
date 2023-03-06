@@ -38,6 +38,18 @@ public class Main {
             System.out.println("Машина " + map.getKey() + " Механик " + map.getValue());
         }
 
+        Set<Driver> driverSet = new HashSet<>();
+
+        driverSet.add(driverB);
+        driverSet.add(driverC);
+        driverSet.add(driverD);
+        driverSet.add(driverC);
+        Iterator<Driver> iterDriver = driverSet.iterator();
+
+        while (iterDriver.hasNext()) {
+            System.out.println(iterDriver.next());
+        }
+
 //        System.out.println(driverB.getDriverLicense(passengerCar1));
 //        System.out.println();
 //        System.out.println(passengerCar1);

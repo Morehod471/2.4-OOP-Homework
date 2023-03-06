@@ -1,5 +1,7 @@
 package Transport;
 
+import java.util.Objects;
+
 public class DriverD<T extends Bus> extends Driver {
 
     public DriverD(String nameSurnamePatronymic, boolean isDrivingLicense, int experience) {
@@ -24,5 +26,19 @@ public class DriverD<T extends Bus> extends Driver {
     public String getDriverLicense(T bus) {
         return "Driver" + getNameSurnamePatronymic() + bus.getBrand() + " " + bus.getModel() + "will participate in race";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DriverD)) return false;
+        DriverD driver = (DriverD) o;
+        return isDrivingLicense() == driver.isDrivingLicense() && getExperience() == driver.getExperience() && Objects.equals(getNameSurnamePatronymic(), driver.getNameSurnamePatronymic());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNameSurnamePatronymic(), isDrivingLicense(), getExperience());
+    }
+
 
 }
